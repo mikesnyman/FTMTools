@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FTMTools.Model
 {
@@ -16,7 +17,7 @@ namespace FTMTools.Model
         {
             string[] tempArray = path.Split('\\');
             string yearFolder = tempArray[tempArray.Count() - 3];
-            string targetName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\TempFolder";
+            string targetName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\TempFolder";  // find better place to keep Version Folder
 
             // Checking to see if Main Folder where all versions are kept exists
             if (!Directory.Exists(targetName))
@@ -27,10 +28,17 @@ namespace FTMTools.Model
             // Checking to see if a years version already has been installed on this computer (only one verions per release can be installed)
             if (Directory.Exists(targetName + @"\" + yearFolder))
             {
-                Console.WriteLine("Which version would you like to install?  You already have a version from this year.");
-                // message box stuff to choose install most recent choice or cancel
-                // uninstall process / option
+                targetName = targetName + @"\" + yearFolder;
+                                
+                //DialogResult answer = MessageBox.Show("A version of this release is already installed.  Would you like to replace installed version with the one you've selected?","Replace Years Version", MessageBoxButton.YesNo);
+                //if(answer)
+                //{
+                //    MessageBox.Show("Manual Uninstall started");
+                //    FindExe(targetName);  // runs executable which displays uninstall option if already installed
+                //    Unzip(targetName, path);  // haven't been able to test it this far yet, not sure if I can run Unzip right away or need to add a wait
+                //}
             }
+
             else // if no version if found then install begins
             {
                 targetName = targetName + @"\" + yearFolder;
@@ -45,8 +53,8 @@ namespace FTMTools.Model
             ProcessStartInfo p = new ProcessStartInfo();
             p.FileName = "7za.exe";
             p.UseShellExecute = false;
-            //p.Arguments = @"x " + path +  "\" -o\"" + targetName + " -v-y";
-            p.Arguments = "x \"" + path + "\" -o\"" + targetName + " -v-y";
+            //p.Arguments = @"x " + path +  "\" -o\"" + targetName + " -v-y";  // should be simple quote problem, but can test till thread issue is gone
+            p.Arguments = "x \"" + path + "\" -o\"" + targetName + "\" -v-y";
 
             Process p2 = Process.Start(p);
             p2.WaitForExit();
