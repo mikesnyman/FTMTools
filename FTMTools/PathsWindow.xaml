@@ -1,0 +1,65 @@
+﻿<Window x:Class="FTMTools.PathsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:FTMTools"
+        Title="PathsWindow" Height="500" Width="525">
+
+    <Grid Margin="0,0,0,0">
+        
+        <Menu Margin="0,2,0,0">
+            <MenuItem Header="File">
+                <MenuItem Header="About FTMTools" Click="About_Click" />
+                <MenuItem Header="Help" Click="Help_Click" />
+                <MenuItem Header="History" Click="History_Click" />
+                <Separator />
+                <MenuItem Header="Exit" Click="Exit_Click" />
+            </MenuItem>
+        </Menu>
+        
+        <ListBox ItemsSource="{Binding}"
+                 FontSize="10"
+                 Margin="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="275"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Name}" 
+                                       Margin="5,10,5,2"
+                                       Grid.Column="0"
+                                       />
+                            <TextBox Text="{Binding Path, Mode=TwoWay}"
+                                     Margin="0,10,0,2"
+                                     Grid.Column="1"
+                                     />                                     
+                        </Grid>                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal"
+                    Margin="75,200,25,25">
+            <Button Content="Save"
+                    Height="30"
+                    Width="60"
+                    Margin="10"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Command="{Binding SaveChanges}"
+                    />
+            <Button Content="Cancel"
+                    Height="30"
+                    Width="60"
+                    Margin="10"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Click="CancelUpdates_Click"
+                    />
+        </StackPanel>
+    </Grid>
+    
+    
+</Window>

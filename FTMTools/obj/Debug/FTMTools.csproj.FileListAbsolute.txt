@@ -1,0 +1,16 @@
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\bin\Debug\FTMTools.exe.config
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\bin\Debug\FTMTools.exe
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\bin\Debug\FTMTools.pdb
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools_MarkupCompile.cache
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools_MarkupCompile.lref
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.g.resources
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.Properties.Resources.resources
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.csproj.GenerateResource.Cache
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.exe
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.pdb
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\MainWindow.g.cs
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\App.g.cs
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\MainWindow.baml
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\FTMTools.csprojResolveAssemblyReference.cache
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\PathsWindow.baml
+C:\Users\mnyman\documents\visual studio 2013\Projects\FTMTools\FTMTools\obj\Debug\PathsWindow.g.cs

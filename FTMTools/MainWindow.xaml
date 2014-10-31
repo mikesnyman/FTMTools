@@ -1,0 +1,89 @@
+﻿<Window x:Class="FTMTools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:FTMTools"
+        Title="MainWindow" Height="500" Width="560">
+    
+    <Grid Margin="0,0,0,0">
+        <Menu Margin="0,2,0,0">
+            <MenuItem Header="File">
+                <MenuItem Header="About FTMTools" Click="About_Click" />
+                <MenuItem Header="Help" Click="Help_Click" />
+                <MenuItem Header="History" Click="History_Click" />
+                <Separator />
+                <MenuItem Header="Exit" Click="Exit_Click" /> 
+            </MenuItem>
+            <MenuItem Header="Options">
+                <MenuItem Header="Check For Updates FTMTools" />
+                <MenuItem Header="Change Product Install Paths" Click="ChangePaths_Click" />
+                <MenuItem Header="Install 7 Zip" />
+                <Separator />
+                <MenuItem Header="Allow Editing of Host File" IsCheckable="True"/>
+                <MenuItem Header="Set Debug On" IsCheckable="True"/>
+            </MenuItem>
+            <MenuItem Header="Test From: ">
+                <RadioButton Name="Live" Content="Live"/>
+                <RadioButton Name="Stage" Content="Stage"/>
+                <RadioButton Name="Dev" Content="Dev"/>
+            </MenuItem>
+        </Menu>
+        
+        <TabControl Margin="5,25,2,15">
+            <TabItem Header="Products">
+                <ListBox ItemsSource="{Binding Products}"
+                         FontSize="10"
+                         Margin="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="275"/>
+                                        <ColumnDefinition Width="25"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Name}"
+                                               Margin="20,8,2,8"
+                                               Grid.Column="0"
+                                               />
+                                    <ComboBox Name="VersionFiles"
+                                              ItemsSource="{Binding ZipFiles}"
+                                              FontSize="12"
+                                              Height="20"
+                                              Width="250"
+                                              Margin="2,8,2,8"
+                                              Grid.Column="1"
+                                              SelectedItem="{Binding Path=SelectedZipFile, Mode=TwoWay}"
+                                              >
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="{Binding ZipFileVersion}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                    <CheckBox Name="SelectedVersion"
+                                              Margin="8,12,2,8"
+                                              Grid.Column="2"
+                                              IsChecked="{Binding IsChecked}">
+                                    </CheckBox>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </TabItem>            
+            <TabItem Header="Deep Clean"/>
+            <TabItem Header="Hosts"/>
+        </TabControl>
+        
+        <Button Name="Install"
+                Height="20"
+                Width="100"
+                Margin="165,325,0,0"
+                Content="Install Selected Version(s)" Command="{Binding SaveChanges}">
+            
+        </Button>
+    </Grid>
+</Window>
